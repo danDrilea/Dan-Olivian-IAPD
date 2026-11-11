@@ -1,11 +1,18 @@
 # Documentatie si Prezentari
 
-Acest director contine materialele oficiale de prezentare ale proiectului:
+Acest director contine materialele de prezentare ale proiectului:
 
-- Prezentare_Proiect_IAPD.pptx: Prezentarea oficiala a proiectului in format 16:9 widescreen, structurata pe urmatoarele 7 capitole:
-  1. Prezentarea Generala a Proiectului: Fragmentarea pietei auto din Romania, asimetria informationala si obiectivele urmarite.
-  2. Achizitia Datelor: Strategiile specifice de colectare pe cele 4 platforme majore (OLX, AutoVit, BestAuto, Mobile.de) si tehnologiile utilizate (Camoufox, curl_cffi, interogare API REST, flux continuu JSONL).
-  3. Curatarea si Armonizarea Datelor: Schema standardizata cu 17 variabile, regulile de validare si eliminarea duplicatelor.
-  4. Analiza Descriptiva a Datelor: Indicatorii cantitativi pe cele 85.391 vehicule unificate (pret median 9.800 Euro, an median 2016, kilometraj median 160.000 km).
-  5. Analiza Vizuala a Datelor: Validarea grafica a distributiilor de pret, vechime, putere si tip de combustibil (Diesel 52.5%, Benzina 40.4%).
-  6. Analize Intentionate (Machine Learning): Modele de baza (Ridge/Lasso, Random Forest), modele avansate intentionate (LightGBM, XGBoost, CatBoost), ingineria caracteristicilor si protocolul de evaluare.
+- **`Presentation - Predicția prețurilor autoturismelor.pdf`**: prezentarea de Faza 1 (11 slide-uri):
+  1. **Titlu**: Predicția prețurilor autoturismelor – IAPD Proiect Faza 1.
+  2. **Ideea proiectului**: fragmentarea pietei auto second-hand si lipsa unei referinte obiective pentru preturi si caracteristici tehnice.
+  3. **Achizitia datelor**: OLX (26.646 anunturi, BeautifulSoup), AutoVit (18.454 anunturi pe 9 segmente), BestAuto (24.144 anunturi in EUR).
+  4. **Scraping robust**: tehnici de persistenta (checkpointing), gestionarea erorilor si deduplicare.
+  5. **Preprocesare**: curatarea a ~89k randuri si unificarea taxonomiilor din cele 4 surse.
+  6. **Limitari**: la Mobile.de doar 27% dintre anunturi au fisa tehnica completa.
+  7. **Statistici descriptive**: 85.959 anunturi in datasetul final, pret mediu 17.267 EUR, distributie asimetrica a preturilor.
+  8. **Corelatii**: corelatia Spearman a pretului cu anul, puterea, capacitatea cilindrica, numarul de usi si kilometrajul (`data/centralized/corelatii_pret.png`).
+  9. **Variatia pretului**: pretul median si intervalul P25–P75 pe fiecare sursa (`data/centralized/pret_pe_sursa.png`).
+  10. **Analize intentionate**: regresie liniara regularizata Ridge, apoi Random Forest Regressor; evaluare cu 5-fold cross-validation folosind MAE si RMSE.
+  11. **Multumiri**.
+
+Cifrele din prezentare provin din `extraction/Faza_1_1.ipynb` si din `data/centralized/cars_centralized.csv`. Detaliile complete ale pipeline-ului si indicatorii datasetului sunt in [README-ul principal](../README.md).
